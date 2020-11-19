@@ -108,8 +108,6 @@ endif; // zuki_content_nav
 /* Filter to rewrite permalinks with custom taxonomy
 /*-----------------------------------------------------------------------------------*/
 add_filter('post_link', 'nummer_permalink', 10, 3);
-add_filter('post_type_link', 'nummer_permalink', 10, 3);
-
 function nummer_permalink($permalink, $post_id, $leavename)
 {
     if (strpos($permalink, '%nummer%') === false) {
@@ -131,4 +129,14 @@ function nummer_permalink($permalink, $post_id, $leavename)
     }
 
     return str_replace('%nummer%', $taxonomy_slug, $permalink);
+}
+
+/*-----------------------------------------------------------------------------------*/
+/* Filter to remove empty rules to avoid 404s on pages
+/*-----------------------------------------------------------------------------------*/
+add_filter('rewrite_rules_array', 'pages_remove_nummer_folder_rule');
+function pages_remove_nummer_folder_rule($rules)
+{
+    unset($rules['([^/]+)/?$']);
+    return $rules;
 }
