@@ -64,16 +64,20 @@ get_header(); ?>
 							_e( 'Chats', 'zuki' );
 
 						elseif ( is_tax( 'utstallningar' ) ) :
-							printf( 'Utställningar: %s', single_term_title('', false) );
+							printf( 'Allt om utställningarna: %s', single_term_title('', false) );
+
+						elseif ( is_tax( 'artiklar' ) ) :
+							$term = get_queried_object();
+							printf( 'Alla %s', get_field('plural', $term) );
 
 						elseif ( is_tax( 'lander' ) ) :
-							printf( 'Land: %s', single_term_title('', false) );
+							printf( 'Allt om land: %s', single_term_title('', false) );
 
 						elseif ( is_tax( 'forfattare' ) ) : 
 							printf( '<span>Allt av</span>' . ' %s ', single_term_title('', false) );
 
 						else :
-							_e( 'Archives', 'zuki' );
+							printf( '<span>Allt om</span>' . ' %s ', single_term_title('', false) );
 
 						endif;
 					?>
