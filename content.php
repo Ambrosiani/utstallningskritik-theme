@@ -33,7 +33,7 @@
 				</div><!-- end .entry-author -->
 				<?php 
 					$terms = get_the_term_list($post->ID, 'artiklar', ' ', ' | ', ' ');
-					echo strip_tags($terms);
+					echo $terms;
 				?>
 		</div><!-- end .entry-details -->
 	</header><!-- end .entry-header -->
