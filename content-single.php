@@ -11,7 +11,8 @@
 
 	<header class="entry-header">
 		<div class="entry-cats">
-			<?php the_category(', '); ?>
+			<?php $terms = get_the_term_list($post->ID, 'nummer', ' ', ' | ', ' ');
+					echo $terms; ?>
 		</div><!-- end .entry-cats -->
 
 		<?php if ( comments_open() ) : ?>
@@ -25,7 +26,7 @@
 
 		<div class="entry-author">
         <?php
-        echo strip_tags(get_the_term_list( $post->ID, 'forfattare', '<span class="description">Text:</span> ', ', ', '' ));
+        echo get_the_term_list( $post->ID, 'forfattare', '<span class="description">Av </span> ', ', ', '' );
         ?>
 			<br/>
 			<?php /* the_terms( $post->ID, 'forfattare', 'Av: ', ', ', '<br/>' ); */ ?>

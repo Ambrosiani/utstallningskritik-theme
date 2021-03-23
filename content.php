@@ -27,12 +27,13 @@
 
 				<div class="entry-author">
 				<?php
-					the_terms( $post->ID, 'forfattare', '<br/><span class="description">Text:</span> ', ', ', '<br/>' );
+					$authorInfo = get_the_term_list( $post->ID, 'forfattare', '<br/><span class="description">Av</span> ', ', ', '<br/>' );
+					echo $authorInfo;
 				?>
 				</div><!-- end .entry-author -->
 				<?php 
 					$terms = get_the_term_list($post->ID, 'artiklar', ' ', ' | ', ' ');
-					echo $terms;
+					echo strip_tags($terms);
 				?>
 		</div><!-- end .entry-details -->
 	</header><!-- end .entry-header -->

@@ -234,7 +234,9 @@ if($mediumone_query->have_posts()) : ?>
 			<div class="entry-details">
 				<div class="entry-forfattare">
 						<?php
-						the_terms( $post->ID, 'forfattare', '<span class="description">Text:</span> ', ', ', '' );
+						$authorInfo = get_the_term_list( $post->ID, 'forfattare', '<br/><span class="description">Av</span> ', ', ', '<br/>' );
+						echo $authorInfo;
+						//the_terms( $post->ID, 'forfattare', '<span class="description">Text:</span> ', ', ', '' );
 						?>
 				</div><!-- end .entry-author -->
 				<div class="entry-facets">

@@ -70,14 +70,14 @@ get_header(); ?>
 							$term = get_queried_object();
 							printf( 'Alla %s', get_field('plural', $term) );
 
-						elseif ( is_tax( 'lander' ) ) :
-							printf( 'Allt om land: %s', single_term_title('', false) );
-
 						elseif ( is_tax( 'forfattare' ) ) : 
-							printf( '<span>Allt av</span>' . ' %s ', single_term_title('', false) );
+							printf( '<span>Alla artiklar av</span>' . ' %s ', single_term_title('', false) );
+
+						elseif ( is_tax( 'nummer' ) ) : 
+							printf( '<span>Alla artiklar i</span>' . ' %s ', single_term_title('', false) );
 
 						else :
-							printf( '<span>Allt om</span>' . ' %s ', single_term_title('', false) );
+							printf( '<span>Alla artiklar om</span>' . ' %s ', single_term_title('', false) );
 
 						endif;
 					?>
@@ -88,7 +88,7 @@ get_header(); ?>
 				if ( ! empty( $term_description ) ) :
 					printf( '<div class="taxonomy-description">%s</div>', $term_description );
 				endif;
-				printf('<button class="facetwp-flyout-open">Filter</button>'); 
+				//printf('<button class="facetwp-flyout-open">Filter</button>'); 
 				printf('<div class="taxonomy-count"><span>' . '%s artiklar', $number_of_posts, '</span>
 				</div>');
 			?>
