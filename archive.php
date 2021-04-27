@@ -77,7 +77,7 @@ get_header(); ?>
 							printf( '<span>Alla artiklar i</span>' . ' %s ', single_term_title('', false) );
 
 						else :
-							printf( '<span>Alla artiklar om</span>' . ' %s ', single_term_title('', false) );
+							printf( '<span>Alla artiklar</span>' );
 
 						endif;
 					?>
@@ -93,6 +93,7 @@ get_header(); ?>
 				</div>');
 			?>
 		</header><!-- end .archive-header -->
+		<p class="mobile"><button class="facetwp-flyout-open">Filtrera artiklar</button></p>
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 

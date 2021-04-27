@@ -199,6 +199,12 @@ hr, hr.wp-block-separator {
   }
 }
 
+@media screen and (min-width: 1038px) {
+  .mobile {
+    display: none;
+  }
+}
+
 h1.archive-title span {
   display: block;
   font-family: 'Karla', Arial, sans-serif;
@@ -269,7 +275,7 @@ h1.archive-title span {
 }
 
 .widget h3.widget-title {
-  padding: 0 0 10px;
+  padding: 24px 0 6px;
 }
 
 .widget-area .widget {
@@ -309,4 +315,36 @@ h1.archive-title span {
 .entry-author {
   margin-bottom: 10px;
   margin-top: 0;
+}
+
+.highlight {
+  background: cornsilk;
+}
+
+.widget-area .widget.highlight {
+  padding: 15px 10px 15px;
+}
+
+.tagcloud a {
+  display: block;
+}
+
+
+.textwidget a.button {
+    background: #000;
+    color:  rgba(255, 255, 255, 0.85) !important;
+    border: none;
+    font-family: 'Karla', Arial, sans-serif;
+    font-size: 13px;
+    font-size: 0.8125rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 15px 15px 14px;
+    border: none;
+}
+
+.textwidget a.button:hover {
+    background: #000;
+    color: #fff !important;
 }
