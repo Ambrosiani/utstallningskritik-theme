@@ -55,7 +55,7 @@ function register_facetwp_display_shortcode($atts)
     global $post;
     $output = '';
     if (isset($atts['facet'])) {
-        $facet = get_the_term_list($post->ID, $atts['facet'], ' ', ' | ', ' ');
+        $facet = get_the_term_list($post->ID, $atts['facet'], ' ', ', ', ' ');
         $title = $atts['title'];
 
         if ($facet) {
