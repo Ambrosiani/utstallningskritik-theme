@@ -77,7 +77,7 @@ get_header(); ?>
 							printf( '<span>Alla artiklar i</span>' . ' %s ', single_term_title('', false) );
 
 						else :
-							printf( '<span>Alla artiklar</span>' );
+							printf( 'Arkivet' );
 
 						endif;
 					?>

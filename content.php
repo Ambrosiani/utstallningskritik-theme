@@ -13,13 +13,12 @@
 			<a href="<?php the_permalink(); ?>" title="<?php echo esc_attr( sprintf( __( 'Permalink to %s', 'zuki' ), the_title_attribute( 'echo=0' ) ) ); ?>"><?php the_post_thumbnail(); ?></a>
 		</div><!-- end .entry-thumbnail -->
 	<?php endif; ?>
-				<?php if ( is_archive() || is_search() ) : // Display custom taxonomies for archives and search results. ?>
+
 	<div class="entry-details">		
 		<div class="entry-cats">
 				<?php the_terms( $post->ID, 'nummer', '', ', '); ?>
 		</div><!-- end .entry-cats -->
 	</div><!-- end .entry-details -->
-				<?php endif; ?>
 	<header class="entry-header">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 		?> 
@@ -33,7 +32,7 @@
 				</div><!-- end .entry-author -->
 				<?php 
 					$terms = get_the_term_list($post->ID, 'artiklar', ' ', ' | ', ' ');
-					echo strip_tags($terms);
+					echo $terms;
 				?>
 		</div><!-- end .entry-details -->
 	</header><!-- end .entry-header -->
