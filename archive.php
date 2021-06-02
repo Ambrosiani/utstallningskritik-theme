@@ -92,8 +92,10 @@ get_header(); ?>
 				printf('<div class="taxonomy-count"><span>' . '%s artiklar', $number_of_posts, '</span>
 				</div>');
 			?>
+			
 		</header><!-- end .archive-header -->
 		<p class="mobile"><button class="facetwp-flyout-open">Filtrera artiklar</button></p>
+		
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -112,11 +114,16 @@ get_header(); ?>
 				</div><!-- .entry-content -->
 			</article><!-- #post-0 -->
 		<?php endif; ?>
-
 		<?php
 		// Previous/next post navigation.
-		zuki_content_nav( 'nav-below' ); ?>
+		// zuki_content_nav( 'nav-below' );
+
+		if(shortcode_exists('facetwp')){
+			echo do_shortcode('[facetwp facet="pager_archive"]');
+		}
+		?>
 
 </div><!-- end #primary -->
+
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

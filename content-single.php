@@ -44,12 +44,26 @@
 	</div><!-- end .entry-content -->
 
 	<footer class="entry-meta">
-		<?php 
-		/*<div class="entry-cats">
-			<span><?php _e('Filed under: ', 'zuki') ?></span><?php the_category(', '); ?><br/>
-		</div><!-- end .entry-cats -->*/
+		<p>
+		<?php echo 'Permanent länk till denna artikel: <a class="code" href="https://utstallningskritik.se/?p=';
+		echo the_id();
+		echo '">https://utstallningskritik.se/?p=';
+		echo the_id();
+		echo '</a>';
+
+		$ursprunglig_adress = get_field( "ursprunglig_adress" );
+
+		if( $ursprunglig_adress ) {
+			echo '<br/>Ursprunglig adress till denna artikel: <a class="code" href="';
+    		echo $ursprunglig_adress;
+    		echo '">';
+    		echo $ursprunglig_adress;
+    		echo '</a>';
+		} else {
+		}	
+		echo '</p>';
 		?>
-			
+		
 		<?php if ( get_the_author_meta( 'description' ) ): ?>
 			<div class="authorbox cf">
 				<div class="author-info">

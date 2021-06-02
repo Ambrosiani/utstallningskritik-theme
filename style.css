@@ -7,7 +7,7 @@ Template: zuki
 Version: 1.0.2
 */
 
-hr, hr.wp-block-separator {
+hr, hr.wp-block-separator, .clear, .clearboth {
   clear: both;
 }
 
@@ -347,4 +347,59 @@ h1.archive-title span, span.descriptionmetadata {
 .textwidget a.button:hover {
     background: #000;
     color: #fff !important;
+}
+
+.code {
+  font-family: Monaco, monospace;
+  font-size: 13px;
+  line-height: 100%;
+  background-color: #eee;
+  padding: 0.2em;
+  word-break: normal;
+}
+
+.entry-meta p {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.73;
+}
+
+.facetwp-page {
+  display: none !important;
+}
+
+.facetwp-page.prev, .facetwp-page.next {
+  display: inline-block !important;
+  background: black;
+  padding: 14px 14px 15px;
+  color: white;
+  border: none;
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 13px;
+  font-size: 0.8125rem;
+  letter-spacing: 1px;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-transition: all ease-in-out 0.2s;
+  -moz-transition: all ease-in-out 0.2s;
+  -o-transition: all ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
+}
+
+.facetwp-type-pager {
+  grid-column: 1 / span 3;  
+}
+
+@media screen and (max-width: 800px) {
+  .facetwp-type-pager {
+    grid-column: 1 / span 2;  
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .facetwp-type-pager {
+    grid-column: 1;  
+  }  
 }
