@@ -274,6 +274,10 @@ h1.archive-title span, span.descriptionmetadata {
   margin-top: -10px;
 }
 
+.entry-author a, .entry-cats a {
+  color: #62BFE9;
+}
+
 .widget h3.widget-title {
   padding: 24px 0 6px;
 }

@@ -26,6 +26,7 @@
 
 		<div class="entry-author">
         <?php
+        echo get_the_term_list( $post->ID, 'artiklar', '', ', ', '<br/>' );
         echo get_the_term_list( $post->ID, 'forfattare', '<span class="description">Av </span> ', ', ', '' );
         ?>
 			<br/>

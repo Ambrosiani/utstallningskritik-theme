@@ -63,8 +63,8 @@ get_header(); ?>
 						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
 							_e( 'Chats', 'zuki' );
 
-						elseif ( is_tax( 'utstallningar' ) ) :
-							printf( 'Allt om utställningarna: %s', single_term_title('', false) );
+						elseif ( is_tax( 'amnen') || is_tax( 'museer' ) || is_tax( 'platser' ) || is_tax( 'lander' ) || is_tax( 'utstallningar' ) ) :
+							printf( 'Allt om %s', single_term_title('', false) );
 
 						elseif ( is_tax( 'artiklar' ) ) :
 							$term = get_queried_object();

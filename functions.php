@@ -131,6 +131,29 @@ function nummer_permalink($permalink, $post_id, $leavename)
     return str_replace('%nummer%', $taxonomy_slug, $permalink);
 }
 
+
+add_filter( 'document_title_parts', function( $title_parts_array ) {
+    if (is_single()) {
+        $terms = strip_tags(get_the_term_list($post->ID, 'artiklar', ' ', ' | ', ' '));
+        $title_parts_array['title'] = $title_parts_array['title'].' – '.$terms;    
+    }
+    if (is_tax( 'forfattare' )) {
+        $title_parts_array['title'] = 'Alla artiklar av '.$title_parts_array['title']; 
+    }
+    if (is_tax( 'artiklar' )) {
+        $term = get_queried_object();
+        $title_parts_array['title'] = 'Alla '.get_field('plural', $term);
+    }
+    if (is_tax( 'nummer' )) {
+        $title_parts_array['title'] = 'Alla artiklar i '.$title_parts_array['title'];
+    }
+    if (is_tax( 'amnen') || is_tax( 'museer' ) || is_tax( 'platser' ) || is_tax( 'lander' ) || is_tax( 'utstallningar' )) {
+        $title_parts_array['title'] = 'Allt om '.$title_parts_array['title'];
+    }
+    return $title_parts_array;
+} );
+
+
 /*-----------------------------------------------------------------------------------*/
 /* Filter to remove empty rules to avoid 404s on pages
 /*-----------------------------------------------------------------------------------*/
