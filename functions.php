@@ -10,7 +10,7 @@ function zuki_child_theme_enqueue_styles()
     wp_enqueue_style('child-style', get_stylesheet_uri(),
       array('zuki-style'),
       '20201118'
-    );
+  );
 }
 
 
@@ -39,7 +39,7 @@ function custom_widgets_init()
       'after_widget' => "</aside>",
       'before_title' => '<h3 class="widget-title">',
       'after_title' => '</h3>',
-    ));
+  ));
 }
 
 /*-----------------------------------------------------------------------------------*/
@@ -94,14 +94,14 @@ if (!function_exists('zuki_content_nav')) :
     {
         global $wp_query;
         if ($wp_query->max_num_pages > 1) : ?>
-					<div class="nav-wrap cf">
-						<nav id="<?php echo $nav_id; ?>">
+           <div class="nav-wrap cf">
+              <nav id="<?php echo $nav_id; ?>">
                 <?php next_posts_link(__('<button class="nav-next"><span>Äldre artiklar</span></button>', 'zuki')); ?>
                 <?php previous_posts_link(__('<button class="nav-previous"><span>Nyare artiklar</span></button>', 'zuki')); ?>
-						</nav>
-					</div><!-- end .nav-wrap -->
-        <?php endif;
-    }
+            </nav>
+        </div><!-- end .nav-wrap -->
+    <?php endif;
+}
 endif; // zuki_content_nav
 
 /*-----------------------------------------------------------------------------------*/
@@ -170,3 +170,49 @@ function my_child_theme_locale() {
     load_child_theme_textdomain( 'zuki', get_stylesheet_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'my_child_theme_locale' );
+
+
+
+
+function contributor_preview_access( $posts ) {
+
+    if (
+        is_preview()
+        && ! empty( $posts )
+        && in_array( 'contributor', wp_get_current_user()->roles, true )
+    ) {
+        $posts[0]->post_status = 'publish';
+    }
+    
+    return $posts;
+}
+
+add_filter( 'posts_results', 'contributor_preview_access', 10, 2 );
+
+
+function zuki_post_nav() {
+    global $post;
+
+    // Don't print empty markup if there's nowhere to navigate.
+    $previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
+    $next     = get_adjacent_post( false, '', false );
+
+    if ( ! $next && ! $previous ) {
+        return;
+    }
+    
+    echo '<div class="nav-wrap cf">
+        <nav id="nav-single">
+            <div class="nav-previous">';
+    previous_post_link( '%link', __( '<span class="meta-nav">Previous Post</span>%title', 'zuki' ) );
+    echo '</div>
+            <div class="nav-next">';
+    next_post_link('%link', __( '<span class="meta-nav">Next Post</span>%title', 'zuki' ) );
+    echo '</div>
+        </nav><!-- #nav-single -->
+    </div><!-- end .nav-wrap -->';
+    
+}
+
+
+?>

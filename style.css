@@ -407,3 +407,49 @@ h1.archive-title span, span.descriptionmetadata {
     grid-column: 1;  
   }  
 }
+
+#nav-single {
+  display: flex;
+  justify-content: space-between;
+  font-style: normal;
+}
+
+#nav-single p {
+  margin-bottom: 13px;
+}
+
+.nav-previous,
+.previous-image {
+  float:inherit;
+  max-width: 33%;
+}
+.nav-next,
+.next-image {
+  float:inherit;
+  max-width: 33%;
+}
+
+.nav-article_author, .nav-article_type {
+  font-family: 'Karla', Arial, sans-serif;
+  font-size: 12px;
+}
+
+.nav-wrap a {
+  font-weight: bold;
+  color: #62BFE9;
+}
+
+.nav-wrap .nav-title a {
+  font-size: 18px;
+  color: #000;
+  font-style: normal;
+  font-weight: normal;
+}
+
+.nav-excerpt {
+  font-style: normal;
+}
+
+#nav-single .same h3, #nav-single .same p {
+  display: none;
+}
